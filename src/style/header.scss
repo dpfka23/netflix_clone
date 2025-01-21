@@ -1,0 +1,79 @@
+header{
+  height: 80vh;
+  background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0.7)),url('../../public/images/nfx\ bg_1.jpg');
+  background-position: top center;
+}
+
+nav{
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 30px;
+  margin: 0 auto;
+  @include responive($breakpoint-medium){
+    width: 95%;
+  }
+  h1{
+    color: $primary-color;
+    font-size: $font-size-large;
+  }
+  div{
+    select{
+      padding: 0.4rem 1rem;
+      margin-right: 10px;
+      background-color: transparent;
+      color: $text-color;
+      border-radius: 5px;
+      option{
+        background-color: #fff;
+        color: #000;
+      }
+    }
+    button{
+      @include button-style;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      &:hover{
+        background-color: $hover-color;
+      }
+    }
+  }
+}
+
+.header-content{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  text-align: center;
+  h2{
+    font-size: 60px;
+    margin-bottom: 20px;
+    @include responive($breakpoint-medium){
+      font-size: 40px;
+    }
+  }
+  h4{
+    font-size: $font-size-medium;
+    margin-bottom: 20px;
+  }
+  p{
+    font-size: $font-size-medium;
+  }
+  .email-box{
+    margin-top: 20px;
+    input{
+      font-size: $font-size-medium;
+      padding: 0.5rem 1rem;
+      margin-right: 10px;
+      @include responive($breakpoint-small){
+        width: 100%;
+      } 
+    }
+    button{
+      @include button-style;
+      font-size: $font-size-medium;
+    }
+  }
+}
