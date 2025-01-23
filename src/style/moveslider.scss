@@ -1,0 +1,80 @@
+.move-slider{
+  @include component_size;
+  position: relative;
+  //기본 화살표에 가상 요소 삭제
+  .slick_next:before,
+  .slick_prev:before{
+    content:'';
+  }
+  .btn_prev,
+  .btn_next{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background-color: rgba(0,0,0,0.7);
+    border-radius: 10px;
+    width: 40px;
+    height: 70px;
+    text-align: center;
+    line-height: 70px;
+    cursor: pointer;
+    color: #fff;
+    &:hover{
+      background-color: rgba(255,255,255,0.5);
+      color: black;
+    }
+  }
+  .btn_prev{
+    left: -50px;
+  }
+  .btn_next{
+    right: -50px;
+  }
+  .movie-card{
+    position: relative;
+    transition: 0.5s;
+    cursor: pointer;
+    &:hover{
+      transform: scale(1.05);
+    }
+    span{
+      position: absolute;
+      left: -10px;
+      bottom: 0;
+      font-size: 100px;
+      font-weight: bolder;
+      color: #000;
+      text-shadow: -2px -2px 0 #fff,
+                  2px -2px 0 #fff,
+                  -2px 2px 0 #fff,
+                  2px 2px 0 #fff;
+    }
+    img{
+      width: 90%;
+      margin: 0 auto;
+      height: 300px;
+      object-fit: cover;
+    }
+  }
+  .sec1,
+  .sec2{
+      padding: 10px 15px;
+      margin: 15px 25px 15px 0;
+      background-color: transparent;
+      color: $text-color;
+      border-radius: 5px;
+      option{
+        background-color: #fff;
+        color: #000;
+      }
+    }
+    button{
+      @include button-style;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      &:hover{
+        background-color: $hover-color;
+    }
+  }
+}

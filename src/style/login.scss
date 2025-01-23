@@ -1,0 +1,127 @@
+.login{
+  height: 100vh;
+  background-color: #777;
+  background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0.3)),url("../../public/images/nfx\ bg_1.jpg");
+  background-position: top center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login-popup{
+  width: 450px;
+  height: 90%;
+  background-color: rgba(0,0,0,0.8);
+  border-radius: 10px;
+  padding: 50px;
+  position: relative;
+  *{
+    margin: 15px 0;
+    font-size: $font-size-medium;
+    outline: none;
+  }
+  .close{
+    background-color: transparent;
+    position: absolute;
+    right: 20px;
+    top: 0;
+    font-size: 20px;
+    cursor: pointer;
+    color: #888;
+    &:hover{
+      color: #fff;
+    }
+  }
+  h2{
+    font-size: $font-size-large;
+  }
+  label, input, span, button{
+    display: block;
+    width: 100%;
+    border-radius: 5px;
+  }
+  a{
+    text-decoration: none;
+    color: inherit;
+  }
+  input{
+    border: 1px solid #888;
+    border-radius: 5px;
+    padding: 15px;
+    background-color: transparent;
+    &:focus{
+      box-shadow: 0 0 2px #fff;
+    }
+  }
+  button:nth-of-type(1){
+    @include button-style;
+  }
+  button:nth-of-type(2){
+    @include button-style;
+    background-color: rgba($color: #777, $alpha: 0.4);
+  }
+  form{
+    label{
+      position: relative;
+      &.focused{
+        span{
+          font-size: 10px;
+          top: 20%;
+          left: 15px;
+          // transform: translateY(-50%);
+          // transition: 0.3s;
+        }
+      }
+      &.error{
+        input{
+          border: 1px solid #f00;
+        }
+      }
+    }
+    input{
+      position: relative;
+      padding-top: 25px;
+    }
+    span{
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      left: 15px;
+      transform: translateY(-50%);
+    }
+    p{
+      text-align: center;
+    }
+    a{
+      display: block;
+      text-align: center;
+    }
+    .email-error{
+      color: $primary-color;
+      // font-weight: bolder;
+      font-size: 14px;
+      text-align: left;
+    }
+  }
+  .login-box{
+    input[type=checkbox]{
+      display: inline-block;
+      width: 20px;
+      transform: scale(1.5);
+      &:focus{
+        box-shadow: none;
+        outline: none;
+      }
+    }
+    span{
+      display: inline-block;
+      width: auto;
+    }
+    p:last-of-type{
+      font-size: 13px;
+      a{
+        font-size: 13px;
+        color: rgb(51, 119, 245);
+      }
+    }
+  }
+}

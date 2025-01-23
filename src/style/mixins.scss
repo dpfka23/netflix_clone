@@ -9,11 +9,11 @@
   }
 }
 @mixin component_size{
-  width: 70%;
+  width: 80%;
   margin: 0 auto;
 }
 
-@mixin responive($breakpoint){
+@mixin responsive($breakpoint){
   @media screen and (max-width: $breakpoint){
     @content;
   }

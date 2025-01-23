@@ -11,7 +11,7 @@ nav{
   align-items: center;
   padding-top: 30px;
   margin: 0 auto;
-  @include responive($breakpoint-medium){
+  @include responsive($breakpoint-medium){
     width: 95%;
   }
   h1{
@@ -50,7 +50,7 @@ nav{
   h2{
     font-size: 60px;
     margin-bottom: 20px;
-    @include responive($breakpoint-medium){
+    @include responsive($breakpoint-medium){
       font-size: 40px;
     }
   }
@@ -60,20 +60,5 @@ nav{
   }
   p{
     font-size: $font-size-medium;
-  }
-  .email-box{
-    margin-top: 20px;
-    input{
-      font-size: $font-size-medium;
-      padding: 0.5rem 1rem;
-      margin-right: 10px;
-      @include responive($breakpoint-small){
-        width: 100%;
-      } 
-    }
-    button{
-      @include button-style;
-      font-size: $font-size-medium;
-    }
   }
 }
