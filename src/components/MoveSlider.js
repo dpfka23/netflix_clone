@@ -7,45 +7,56 @@ import axios from "axios";
 const MoveSlider = () => {
   const [movies, setMovies] = useState([]);
   const [error,setError] = useState(null);
-  const fetchMovies = async()=>{
+  const [isLoading,setIsLoading] = useState(false);
+  const fetchMovies = async ()=>{
     const API_KEY="decc67e8f617c228c9c976bb05cd39ca"
     const url = `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}&language=ko-KR&page=1`
-  try{
-    const response = await axios.get(url);
-    setMovies(response.data.results.slice(0,10));
-  } catch(err){
-    setError("영화 데이터를 가져오는 중 오류 발생");
-  }
+    try{
+      const response = await axios.get(url);
+      setMovies(response.data.results.slice(0,10));
+      setIsLoading(false);
+    } catch(err){
+      setError("영화 데이터를 가져오는 중 오류 발생");
+      setIsLoading(false);
+    }
   }
   useEffect(()=>{
+    setIsLoading(true);
     fetchMovies();
   },[]);
+
   const settings = {
     dots: false,
     infinite: false,
     speed: 500,
     slidesToShow: 5,
     slidesToScroll: 5,
-    initialSlide: 1,
+    initialSlide: 0,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 960,
         settings: {
-          slidesToShow: 3
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 0
         }
       },
       {
         breakpoint: 600,
         settings: {
-          slidesToShow: 2
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 0
         }
       },
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 1
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          initialSlide: 0
         }
       }
     ]
@@ -66,11 +77,16 @@ const MoveSlider = () => {
       >◁</div>
     );
   }
+
+  if(error){
+    return <div>{error}</div>
+  }
+  if(isLoading){
+    return <div>Loading......</div>
+  }
+
   return (
     <div className="move-slider">
-      {
-        console.log(movies)
-      }
       <h2>지금 뜨는 콘텐츠</h2>
       <select className="sec1">
         <option>대한민국</option>
