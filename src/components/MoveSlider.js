@@ -74,7 +74,7 @@ const MoveSlider = () => {
     return (
       <div className="btn_prev"
       onClick={onClick}
-      >◁</div>
+      >◀</div>
     );
   }
 
